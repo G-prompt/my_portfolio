@@ -1,0 +1,83 @@
+/* AIAssistant.css */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #9c27b0, #ffd700);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    color: #000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.user-message {
+    text-align: right;
+    margin-bottom: 0.5rem;
+    color: #9c27b0;
+}
+
+.bot-message {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: #ffd700;
+}
+
+.chat-input {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffd700;
+}
+
+.chat-input button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #9c27b0;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,705 @@
+/* Layout.css */
+.layout {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000 0%, #2d1b69 50%, #000000 100%);
+    color: #ffd700;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.background-animation {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.background-animation .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    filter: blur(18px);
+}
+
+.background-animation .c1 {
+    width: 220px;
+    height: 220px;
+    background: rgba(255, 215, 0, 0.25);
+    top: 10%;
+    left: 5%;
+    animation: float-slow 18s ease-in-out infinite;
+}
+
+.background-animation .c2 {
+    width: 180px;
+    height: 180px;
+    background: rgba(156, 39, 176, 0.28);
+    top: 25%;
+    right: 10%;
+    animation: float-slow 20s ease-in-out infinite reverse;
+}
+
+.background-animation .c3 {
+    width: 140px;
+    height: 140px;
+    background: rgba(255, 255, 255, 0.16);
+    bottom: 20%;
+    left: 10%;
+    animation: float-slow 16s ease-in-out infinite;
+}
+
+.background-animation .c4 {
+    width: 100px;
+    height: 100px;
+    background: rgba(33, 150, 243, 0.2);
+    bottom: 30%;
+    right: 20%;
+    animation: float-slow 22s ease-in-out infinite;
+}
+
+.java-code {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: rgba(255, 215, 0, 0.1);
+    text-align: center;
+    line-height: 1.6;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.java-code span {
+    display: block;
+    animation: code-glow 4s ease-in-out infinite alternate;
+}
+
+.java-code span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.java-code span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.java-code span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.java-code span:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.java-code span:nth-child(5) {
+    animation-delay: 2s;
+}
+
+/* Deep Space Background */
+.deep-space {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cosmic-star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.orbiting-planet {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.6));
+}
+
+.planet-1 {
+    top: 15%;
+    right: 8%;
+    font-size: 3rem;
+}
+
+.planet-2 {
+    bottom: 25%;
+    left: 12%;
+    font-size: 2.5rem;
+    opacity: 0.25;
+}
+
+.planet-3 {
+    top: 35%;
+    left: 20%;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+.asteroid {
+    position: absolute;
+    font-size: 1rem;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+.nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.1;
+}
+
+.nebula-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+    top: 10%;
+    left: 15%;
+    animation: nebula-pulse 8s ease-in-out infinite;
+}
+
+.nebula-2 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 20, 147, 0.2) 0%, transparent 70%);
+    bottom: 15%;
+    right: 10%;
+    animation: nebula-pulse 10s ease-in-out infinite reverse;
+}
+
+.nebula-3 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(30, 144, 255, 0.25) 0%, transparent 70%);
+    top: 60%;
+    left: 60%;
+    animation: nebula-pulse 12s ease-in-out infinite;
+}
+
+.background-animation .c4 {
+    width: 260px;
+    height: 260px;
+    background: rgba(155, 89, 182, 0.18);
+    bottom: 5%;
+    right: 5%;
+    animation: float-slow 22s ease-in-out infinite reverse;
+}
+
+.java-code {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.25);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    animation: code-glow 8s ease-in-out infinite;
+}
+
+.java-code span {
+    display: block;
+}
+
+@keyframes code-glow {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) translateX(20px) rotate(8deg);
+    }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 1rem;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-decoration: none;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    min-width: 200px;
+}
+
+.menu a {
+    display: block;
+    color: #ffd700;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #9c27b0;
+}
+
+.main-content {
+    padding-top: 80px;
+    min-height: calc(100vh - 160px);
+}
+
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1rem;
+    color: #ffd700;
+}
+
+.footer a {
+    color: #9c27b0;
+    text-decoration: none;
+}
+
+.theme-toggle-fixed {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: #ffd700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    transition: all 0.3s;
+}
+
+.theme-toggle-fixed:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Dark mode styles */
+body.dark .layout {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 50%, #1a1a1a 100%);
+    color: #ffffff;
+}
+
+body.dark .navbar {
+    background: rgba(26, 26, 26, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .logo,
+body.dark .hamburger,
+body.dark .theme-toggle-fixed {
+    color: #ffffff;
+}
+
+body.dark .menu {
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .menu a {
+    color: #ffffff;
+}
+
+body.dark .menu a:hover {
+    color: #9c27b0;
+}
+
+body.dark .footer {
+    background: rgba(26, 26, 26, 0.9);
+    color: #ffffff;
+}
+
+body.dark .footer a {
+    color: #9c27b0;
+}
+
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+@keyframes code-glow {
+
+    0%,
+    100% {
+        opacity: 0.1;
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+    }
+
+    50% {
+        opacity: 0.3;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+}
+
+@keyframes nebula-pulse {
+
+    0%,
+    100% {
+        opacity: 0.05;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.15;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes cosmic-float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-10px) rotate(120deg);
+    }
+
+    66% {
+        transform: translateY(5px) rotate(240deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+    .background-animation .c1,
+    .background-animation .c2,
+    .background-animation .c3,
+    .background-animation .c4 {
+        opacity: 0.1;
+    }
+
+    .navbar {
+        padding: 0.8rem;
+    }
+
+    .navbar-content {
+        flex-direction: row;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .main-content {
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .layout {
+        background: linear-gradient(135deg, #000000 0%, #1a0f3a 50%, #000000 100%);
+    }
+
+    .background-animation .c1 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .background-animation .c2 {
+        width: 120px;
+        height: 120px;
+    }
+
+    .background-animation .c3 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .background-animation .c4 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .navbar-content {
+        justify-content: space-between;
+        padding: 0 0.5rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .hamburger {
+        font-size: 1.3rem;
+    }
+
+    .menu {
+        position: fixed;
+        right: 0;
+        top: 50px;
+        min-width: 180px;
+        margin-right: 0.5rem;
+        border-radius: 8px;
+    }
+
+    .menu a {
+        padding: 0.75rem 1rem;
+    }
+
+    .main-content {
+        padding-top: 60px;
+        min-height: calc(100vh - 120px);
+    }
+
+    .theme-toggle-fixed {
+        width: 36px;
+        height: 36px;
+        top: 65px;
+        font-size: 1rem;
+    }
+
+    .cosmic-star {
+        width: 0.5px;
+        height: 0.5px;
+    }
+
+    .orbiting-planet {
+        font-size: 1.5rem;
+    }
+
+    .planet-1 {
+        font-size: 2rem;
+    }
+
+    .planet-2 {
+        font-size: 1.8rem;
+    }
+
+    .asteroid {
+        font-size: 0.8rem;
+    }
+
+    .nebula-1,
+    .nebula-2,
+    .nebula-3 {
+        filter: blur(20px);
+    }
+
+    .nebula-1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .nebula-2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .nebula-3 {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .layout {
+        background: linear-gradient(135deg, #000000 0%, #0f0820 50%, #000000 100%);
+    }
+
+    .background-animation .c1,
+    .background-animation .c2,
+    .background-animation .c3,
+    .background-animation .c4 {
+        opacity: 0.08;
+    }
+
+    .background-animation .c1 {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+    }
+
+    .background-animation .c2 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .background-animation .c3 {
+        width: 60px;
+        height: 60px;
+    }
+
+    .background-animation .c4 {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar {
+        padding: 0.4rem 0.5rem;
+        height: auto;
+    }
+
+    .navbar-content {
+        padding: 0.5rem 0;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .hamburger {
+        font-size: 1.2rem;
+    }
+
+    .menu {
+        position: fixed;
+        top: 45px;
+        right: 0;
+        left: 0;
+        min-width: unset;
+        margin: 0;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        max-height: 250px;
+        overflow-y: auto;
+    }
+
+    .menu a {
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .main-content {
+        padding-top: 50px;
+        min-height: calc(100vh - 100px);
+    }
+
+    .theme-toggle-fixed {
+        width: 32px;
+        height: 32px;
+        top: 55px;
+        right: 10px;
+        font-size: 0.9rem;
+        padding: 0.3rem;
+    }
+
+    .footer {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .footer a {
+        color: #9c27b0;
+    }
+
+    .cosmic-star {
+        width: 0.3px;
+        height: 0.3px;
+    }
+
+    .orbiting-planet {
+        display: none;
+    }
+
+    .asteroid {
+        font-size: 0.6rem;
+    }
+
+    .nebula {
+        filter: blur(15px);
+    }
+
+    .nebula-1 {
+        width: 120px;
+        height: 120px;
+        opacity: 0.05;
+    }
+
+    .nebula-2 {
+        width: 100px;
+        height: 100px;
+        opacity: 0.05;
+    }
+
+    .nebula-3 {
+        width: 80px;
+        height: 80px;
+        opacity: 0.05;
+    }
+
+    .java-code {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+}

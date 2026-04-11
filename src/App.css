@@ -1,0 +1,38 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #000000 0%, #2d1b69 50%, #000000 100%);
+  color: #ffd700;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  color: #ffd700;
+}
+
+p {
+  color: #9c27b0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}

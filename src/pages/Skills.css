@@ -1,0 +1,231 @@
+/* Skills.css */
+.skills {
+    padding: 2.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.floating-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 215, 0, 0.5);
+    z-index: 0;
+}
+
+.floating-icon-svg {
+    font-size: 2rem;
+}
+
+.skills h1 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    font-size: clamp(2rem, 3vw, 3rem);
+    position: relative;
+    z-index: 1;
+}
+
+.skills-intro {
+    text-align: center;
+    color: rgba(255, 215, 0, 0.9);
+    margin-bottom: 2rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.skills-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.frontend-grid,
+.backend-grid,
+.devops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 22px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: #ffd700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 160px;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    animation: floatCard 10s ease-in-out infinite;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 215, 0, 0.35);
+    box-shadow: 0 18px 40px rgba(156, 39, 176, 0.18);
+}
+
+.skill-icon,
+.floating-icon-svg {
+    color: #9c27b0;
+    font-size: 2.6rem;
+    animation: floatIcon 6s ease-in-out infinite;
+}
+
+.skill-card span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffd700;
+}
+
+.frontend-panel,
+.backend-panel {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 22px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100%;
+}
+
+.frontend-panel h2,
+.backend-panel h2 {
+    margin: 0;
+    color: #ffd700;
+    font-size: 1.5rem;
+}
+
+.devops-section {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    position: relative;
+    z-index: 1;
+}
+
+.devops-section h2 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.devops-card,
+.backend-card {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 950px) {
+    .skills-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ai-section {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-section h2 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.ai-description {
+    text-align: center;
+    color: rgba(255, 215, 0, 0.8);
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.ai-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 1.2rem 1rem;
+    min-height: 120px;
+    justify-content: center;
+}
+
+.ai-skill-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffd700;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .skills {
+        padding: 2rem 0.8rem;
+    }
+
+    .skills-section {
+        gap: 1rem;
+    }
+
+    .ai-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
