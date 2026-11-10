@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
                 {status && <p className="form-status" role="status" aria-live="polite">{status}</p>}
             </form>
             <div className="contact-info">
-                <p>Have a project, role, or thoughtful question in mind? Send a note and I’ll reply as soon as I can.</p>
+                <p>Have a project, role, or thoughtful question in mind? Send a note and I’ll reply as soon as I can. If the form does not open your email app, use this direct email backup:</p>
                 <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
             </div>
         </motion.div>

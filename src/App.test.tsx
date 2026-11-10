@@ -1,6 +1,7 @@
 import type React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import Contact from './pages/Contact';
 
 jest.mock('react-router-dom', () => {
   const React = require('react') as typeof import('react');
@@ -32,4 +33,14 @@ test('renders portfolio navigation with writing and certifications links', () =>
   expect(screen.getByText(/goodluck\.dev/i)).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /writing/i })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /certifications/i })).toBeInTheDocument();
+});
+
+test('provides a direct email backup on the contact page', () => {
+  render(<Contact />);
+
+  expect(screen.getByRole('link', { name: 'goodluckelisha21@gmail.com' })).toHaveAttribute(
+    'href',
+    'mailto:goodluckelisha21@gmail.com'
+  );
+  expect(screen.getByText(/direct email backup/i)).toBeInTheDocument();
 });
