@@ -13,7 +13,8 @@
     font-family: 'DM Sans', 'Segoe UI', sans-serif;
 }
 
-.projects > h1 { margin-bottom: 1.8rem; color: var(--ink); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 500; }
+.projects > h1 { margin-bottom: 0.3rem; color: var(--ink); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 500; }
+.projects-count { margin: 0 0 1.6rem; color: var(--green); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.4rem 1.25rem; margin: 0 0 1.6rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
 .filters button { padding: 0.35rem 0; border: 0; border-bottom: 1px solid transparent; border-radius: 0; background: transparent; color: var(--muted); font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; }
 .filters button:hover, .filters button.active { border-color: var(--green); background: transparent; color: var(--green); }

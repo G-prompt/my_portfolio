@@ -1,6 +1,9 @@
+import { useCallback, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
+import LoadingScreen from './components/LoadingScreen';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -12,10 +15,16 @@ import Certifications from './pages/Certifications';
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const finishLoading = useCallback(() => setIsLoading(false), []);
+
   return (
     <HelmetProvider>
       <ThemeProvider>
         <Router>
+          <AnimatePresence>
+            {isLoading && <LoadingScreen onComplete={finishLoading} />}
+          </AnimatePresence>
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />

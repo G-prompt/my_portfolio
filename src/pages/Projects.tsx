@@ -106,6 +106,9 @@ const Projects: React.FC = () => {
             transition={{ duration: 0.8 }}
         >
             <h1>My Projects</h1>
+            <p className="projects-count" aria-live="polite">
+                {filteredProjects.length} live {filteredProjects.length === 1 ? 'project' : 'projects'}
+            </p>
             <div className="filters">
                 {categories.map(cat => (
                     <button

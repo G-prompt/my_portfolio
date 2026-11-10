@@ -1,8 +1,12 @@
 import type React from 'react';
 import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaBrain, FaMousePointer } from 'react-icons/fa';
 import type { IconBaseProps, IconType } from 'react-icons';
-import { SiMongodb, SiMongoose, SiFlutter, SiPostgresql, SiTypescript, SiGithub, SiVercel, SiNetlify, SiCloudflare, SiFirebase, SiSupabase, SiAngular } from 'react-icons/si';
+import {
+    SiMongodb, SiMongoose, SiFlutter, SiPostgresql, SiTypescript, SiGithub,
+    SiVercel, SiNetlify, SiCloudflare, SiFirebase, SiSupabase, SiAngular,
+    SiOpenai, SiAnthropic, SiPerplexity, SiGithubcopilot
+} from 'react-icons/si';
 import './Skills.css';
 
 type SkillIcon = IconType;
@@ -33,13 +37,13 @@ const devOpsSkills: Array<{ label: string; Icon: SkillIcon }> = [
     { label: 'Cloudflare', Icon: SiCloudflare },
 ];
 
-const aiSkills: string[] = [
-    'ChatGPT',
-    'Claude',
-    'Perplexity',
-    'DeepSeek',
-    'GitHub Copilot',
-    'Cursor AI'
+const aiSkills: Array<{ label: string; Icon: SkillIcon }> = [
+    { label: 'ChatGPT', Icon: SiOpenai },
+    { label: 'Claude', Icon: SiAnthropic },
+    { label: 'Perplexity', Icon: SiPerplexity },
+    { label: 'DeepSeek', Icon: FaBrain },
+    { label: 'GitHub Copilot', Icon: SiGithubcopilot },
+    { label: 'Cursor AI', Icon: FaMousePointer }
 ];
 
 const Skills: React.FC = () => {
@@ -118,17 +122,21 @@ const Skills: React.FC = () => {
                 <h2>AI Tools & Assistants</h2>
                 <p className="ai-description">I leverage cutting-edge AI tools to enhance productivity, code quality, and problem-solving in my development workflow.</p>
                 <div className="ai-grid">
-                    {aiSkills.map((skill, index) => (
-                        <motion.div
-                            key={skill}
-                            className="skill-card ai-card"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 + index * 0.08 }}
-                        >
-                            <span className="ai-skill-text">{skill}</span>
-                        </motion.div>
-                    ))}
+                    {aiSkills.map(({ label, Icon }, index) => {
+                        const IconComponent = Icon as React.ComponentType<IconBaseProps>;
+                        return (
+                            <motion.div
+                                key={label}
+                                className="skill-card ai-card"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.6 + index * 0.08 }}
+                            >
+                                <IconComponent className="skill-icon ai-skill-icon" aria-hidden="true" />
+                                <span className="ai-skill-text">{label}</span>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </motion.div>

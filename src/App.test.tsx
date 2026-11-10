@@ -2,6 +2,8 @@ import type React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import Contact from './pages/Contact';
+import Projects from './pages/Projects';
+import Skills from './pages/Skills';
 
 jest.mock('react-router-dom', () => {
   const React = require('react') as typeof import('react');
@@ -30,9 +32,29 @@ jest.mock('react-router-dom', () => {
 test('renders portfolio navigation with writing and certifications links', () => {
   render(<App />);
 
-  expect(screen.getByText(/goodluck\.dev/i)).toBeInTheDocument();
+  expect(screen.getByRole('navigation')).toHaveTextContent(/Goodluck\s*\.dev/i);
   expect(screen.getByRole('link', { name: /writing/i })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /certifications/i })).toBeInTheDocument();
+  expect(screen.getByRole('status', { name: /loading portfolio/i })).toBeInTheDocument();
+});
+
+test('shows all six live projects and their total count', () => {
+  render(<Projects />);
+
+  expect(screen.getByText('6 live projects')).toBeInTheDocument();
+  expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(6);
+});
+
+test('shows an icon for every AI tool and assistant', () => {
+  const { container } = render(<Skills />);
+
+  expect(screen.getByText('ChatGPT')).toBeInTheDocument();
+  expect(screen.getByText('Claude')).toBeInTheDocument();
+  expect(screen.getByText('Perplexity')).toBeInTheDocument();
+  expect(screen.getByText('DeepSeek')).toBeInTheDocument();
+  expect(screen.getByText('GitHub Copilot')).toBeInTheDocument();
+  expect(screen.getByText('Cursor AI')).toBeInTheDocument();
+  expect(container.querySelectorAll('.ai-card svg')).toHaveLength(6);
 });
 
 test('provides a direct email backup on the contact page', () => {

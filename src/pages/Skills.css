@@ -27,6 +27,7 @@
 .devops-section, .ai-section { max-width: none; margin: 2.4rem 0 0; }
 .ai-description { max-width: 620px; margin: 0 0 1rem; color: var(--muted); font-size: 0.85rem; line-height: 1.75; text-align: left; }
 .ai-card { min-height: 55px; justify-content: flex-start; padding: 0.7rem 0.5rem; border: 0; border-bottom: 1px solid var(--rule); background: transparent; }
+.ai-skill-icon { flex: 0 0 1.15rem; }
 
 @media (max-width: 760px) {
     .skills { padding: 3rem 1.1rem 4rem; }

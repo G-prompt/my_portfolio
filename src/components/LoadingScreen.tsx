@@ -1,96 +1,43 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import type React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import './LoadingScreen.css';
 
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
+    const prefersReducedMotion = useReducedMotion();
+
     useEffect(() => {
-        const timer = setTimeout(() => {
-            onComplete();
-        }, 3600);
+        const timer = setTimeout(onComplete, prefersReducedMotion ? 180 : 950);
         return () => clearTimeout(timer);
-    }, [onComplete]);
+    }, [onComplete, prefersReducedMotion]);
 
     return (
         <motion.div
             className="loading-screen"
-            initial={{ opacity: 1 }}
+            role="status"
+            aria-label="Loading portfolio"
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.75 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.22 }}
         >
             <div className="loading-background" aria-hidden="true">
-                <span className="orb orb-one" />
-                <span className="orb orb-two" />
-                <span className="orb orb-three" />
-                {Array.from({ length: 80 }, (_, index) => (
-                    <span
-                        key={index}
-                        className="star"
-                        style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 3}s`,
-                            width: `${Math.random() * 3 + 1}px`,
-                            height: `${Math.random() * 3 + 1}px`
-                        }}
-                    />
-                ))}
+                <span className="loading-glow loading-glow-one" />
+                <span className="loading-glow loading-glow-two" />
             </div>
-
             <div className="loading-content">
                 <motion.div
-                    className="loading-core"
-                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.7, ease: 'easeOut' }}
+                    className="loading-mark"
+                    aria-hidden="true"
+                    animate={{ rotate: prefersReducedMotion ? 0 : 360 }}
+                    transition={{ duration: 3.2, ease: 'linear', repeat: prefersReducedMotion ? 0 : Infinity }}
                 >
-                    <div className="system-ring">
-                        <div className="ring-inner" />
-                    </div>
-
-                    <div className="loading-copy">
-                        <p className="loading-tag">Portfolio boot sequence</p>
-                        <h2>Goodluck.dev</h2>
-                        <p className="loading-subtitle">Initializing product systems and experience layers...</p>
-                    </div>
+                    <span>G</span>
                 </motion.div>
-
-                <div className="java-terminal">
-                    <div className="terminal-header">
-                        <span className="title">system_boot.log</span>
-                        <span className="minimize" />
-                        <span className="maximize" />
-                        <span className="close" />
-                    </div>
-                    <div className="terminal-body">
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
-                            <p className="code-line">&gt; connect_profile --ready</p>
-                            <p className="code-output">Profile loaded: Goodluck Oreoluwa Emmanuel</p>
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
-                            <p className="code-line">&gt; load_stack --react --typescript --motion-ui</p>
-                            <p className="code-output">Dependencies synced successfully</p>
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}>
-                            <p className="code-line">&gt; activate_experience_layers</p>
-                            <motion.div className="progress-wrap" animate={{ width: '100%' }} transition={{ duration: 1.6, delay: 1.3 }}>
-                                <div className="progress-bar">
-                                    <motion.div
-                                        className="progress-fill"
-                                        initial={{ width: '0%' }}
-                                        animate={{ width: '100%' }}
-                                        transition={{ duration: 1.6, delay: 1.3 }}
-                                    />
-                                </div>
-                            </motion.div>
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.8 }}>
-                            <p className="code-output">✓ Design systems online</p>
-                            <p className="code-output">✓ AI assistant ready</p>
-                            <p className="code-output">✓ Portfolio ready for review</p>
-                            <p className="code-line">&gt; launch_application</p>
-                        </motion.div>
-                    </div>
+                <p className="loading-tag">Goodluck.dev</p>
+                <p className="loading-subtitle">Preparing your experience</p>
+                <div className="loading-progress" aria-hidden="true">
+                    <span />
                 </div>
             </div>
         </motion.div>
