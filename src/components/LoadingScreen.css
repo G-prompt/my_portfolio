@@ -65,6 +65,7 @@
     border: 1px solid rgba(49, 92, 75, 0.62);
     border-right-color: transparent;
     border-radius: 50%;
+    animation: loadingSpin 3.2s linear infinite;
     content: "";
 }
 
@@ -110,7 +111,15 @@
     to { transform: scaleX(1); }
 }
 
+@keyframes loadingSpin {
+    to { transform: rotate(360deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+    .loading-mark::before {
+        animation: none;
+    }
+
     .loading-progress span {
         animation-duration: 0.18s;
     }

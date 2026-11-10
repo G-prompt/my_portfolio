@@ -1,6 +1,7 @@
 import type React from 'react';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import App from './App';
+import LoadingScreen from './components/LoadingScreen';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
@@ -36,6 +37,19 @@ test('renders portfolio navigation with writing and certifications links', () =>
   expect(screen.getByRole('link', { name: /writing/i })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /certifications/i })).toBeInTheDocument();
   expect(screen.getByRole('status', { name: /loading portfolio/i })).toBeInTheDocument();
+});
+
+test('completes the startup loading screen after a short delay', () => {
+  jest.useFakeTimers();
+  const onComplete = jest.fn();
+
+  render(<LoadingScreen onComplete={onComplete} />);
+  act(() => {
+    jest.advanceTimersByTime(950);
+  });
+
+  jest.useRealTimers();
+  expect(onComplete).toHaveBeenCalledTimes(1);
 });
 
 test('shows all six live projects and their total count', () => {
