@@ -4,6 +4,7 @@ import App from './App';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
+import Certifications from './pages/Certifications';
 
 jest.mock('react-router-dom', () => {
   const React = require('react') as typeof import('react');
@@ -67,6 +68,25 @@ test('shows an icon for every AI tool and assistant', () => {
   expect(screen.getByText('GitHub Copilot')).toBeInTheDocument();
   expect(screen.getByText('Cursor AI')).toBeInTheDocument();
   expect(container.querySelectorAll('.ai-card svg')).toHaveLength(6);
+});
+
+test('lists all certificate PDFs, including the five Mimo uploads', () => {
+  render(<Certifications />);
+
+  expect(screen.getAllByRole('article')).toHaveLength(7);
+  const uploadedIds = ['125', '194', '225', '228', '243'];
+  uploadedIds.forEach(id => {
+    expect(screen.getByRole('heading', { name: `Mimo Certificate ${id}` })).toBeInTheDocument();
+  });
+  const certificateLinks = screen.getAllByRole('link', { name: 'Open certificate PDF' });
+  expect(certificateLinks).toHaveLength(6);
+  expect(certificateLinks.map(link => link.getAttribute('href'))).toEqual(
+    expect.arrayContaining(uploadedIds.map(id => `/certificates/mimo-certificates-${id}.pdf`))
+  );
+  expect(screen.getByRole('link', { name: 'Open document' })).toHaveAttribute(
+    'href',
+    '/certificates/243175-VLSI_System_On_Chip_Design_-_Overview-Goodluck_Emmanuel.pdf'
+  );
 });
 
 test('provides a direct email backup on the contact page', () => {
