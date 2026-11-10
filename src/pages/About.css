@@ -1,57 +1,26 @@
-/* About.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
 .about {
-    padding: 2rem 1rem;
-    max-width: 900px;
+    --ink: #18211f;
+    --muted: #626b64;
+    --rule: rgba(24, 33, 31, 0.16);
+    --green: #315c4b;
+    max-width: 1440px;
+    min-height: calc(100vh - 64px);
     margin: 0 auto;
+    padding: 4.5rem 5.5vw 6rem;
+    color: var(--ink);
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
 }
 
-.about h1 {
-    color: #ffd700;
-    margin-bottom: 1.2rem;
-    font-size: clamp(2rem, 3vw, 3rem);
-}
+.about-eyebrow { margin-bottom: 1rem; color: var(--green); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.about h1 { margin-bottom: 2.2rem; color: var(--ink); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3rem, 6.4vw, 6rem); font-weight: 500; line-height: 1.02; }
+.about h1 em { color: var(--green); }
+.about-copy { max-width: 780px; padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+.about-copy p { margin-bottom: 1.15rem; color: #535c56; font-size: 0.96rem; line-height: 1.9; }
 
-.about p {
-    color: #d7a800;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-    font-size: 1.05rem;
-}
-
-.about-contact {
-    display: grid;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    color: #9c27b0;
-}
-
-.about-contact span {
-    display: inline-block;
-}
-
-.cursor {
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    50% {
-        opacity: 1;
-    }
-
-    51%,
-    100% {
-        opacity: 0;
-    }
-}
-
-@media (max-width: 650px) {
-    .about {
-        padding: 1.5rem 0.75rem;
-    }
-
-    .about p {
-        font-size: 1rem;
-    }
+@media (max-width: 680px) {
+    .about { padding: 3rem 1.1rem 4rem; }
+    .about h1 { margin-bottom: 1.6rem; font-size: clamp(2.65rem, 11vw, 4.3rem); }
+    .about-copy p { font-size: 0.9rem; }
 }

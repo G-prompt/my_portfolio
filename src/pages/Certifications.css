@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+.certifications {
+  --ink: #18211f;
+  --muted: #626b64;
+  --rule: rgba(24, 33, 31, 0.16);
+  --green: #315c4b;
+  max-width: 1440px;
+  min-height: calc(100vh - 64px);
+  margin: 0 auto;
+  padding: 4.5rem 5.5vw 6rem;
+  color: var(--ink);
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+.certifications-header {
+  max-width: 780px;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+  animation: portfolioArrive 0.65s ease both;
+}
+
+.certifications-eyebrow {
+  margin-bottom: 1rem;
+  color: var(--green);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.certifications-header h1 {
+  margin-bottom: 1rem;
+  color: var(--ink);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(4rem, 8vw, 7.4rem);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.certifications-header h1 em { color: var(--green); }
+.certifications-subtitle { max-width: 580px; color: var(--muted); font-size: 0.98rem; line-height: 1.8; }
+.certification-list { max-width: 1100px; margin-top: 2.2rem; border-top: 1px solid var(--ink); }
+
+.certification-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 54px minmax(150px, auto);
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 110px;
+  padding: 1.1rem 0.3rem;
+  border-bottom: 1px solid var(--rule);
+  transition: background-color 0.2s ease;
+}
+
+.certification-row:hover { background: rgba(255, 255, 255, 0.38); }
+.certification-number { align-self: start; padding-top: 0.3rem; color: #8b918a; font-size: 0.72rem; }
+.certification-copy h2 { margin-bottom: 0.35rem; color: var(--ink); font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 500; }
+.certification-copy p { color: var(--muted); font-size: 0.76rem; line-height: 1.65; }
+.certificate-preview { grid-column: 2 / -1; width: 100%; height: 360px; overflow: hidden; border: 1px solid var(--rule); background: #fff; }
+.certificate-preview iframe { display: block; width: 100%; height: 100%; border: 0; }
+.certification-format { justify-self: center; padding: 0.35rem 0.45rem; border: 1px solid var(--rule); color: var(--green); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em; }
+.credential-link { display: inline-flex; justify-self: end; align-items: center; gap: 0.55rem; color: var(--green); font-size: 0.76rem; font-weight: 700; }
+.credential-link:hover { color: #244737; }
+
+@keyframes portfolioArrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 680px) {
+  .certifications { padding: 3rem 1.1rem 4rem; }
+  .certifications-header h1 { font-size: clamp(3.8rem, 16vw, 5.4rem); }
+  .certification-row { grid-template-columns: 28px 1fr 42px; gap: 0.65rem; padding: 1rem 0.15rem; }
+  .certification-copy h2 { font-size: 1.25rem; }
+  .certification-format { grid-column: 3; grid-row: 1; }
+  .certificate-preview { grid-column: 1 / -1; height: 320px; }
+  .credential-link { grid-column: 2 / 4; justify-self: start; margin-top: 0.2rem; }
+}

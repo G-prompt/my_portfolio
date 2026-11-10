@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import type React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Projects.css';
 
 const projects = [
-    {
-        title: 'Elitetraders.US',
-        subtitle: 'Crypto monitoring & trade simulation',
-        description: 'Built a crypto dashboard that tracks market movement and simulates trading scenarios so users can test strategy before execution.',
-        tools: 'React · TypeScript · Charting · API integration',
-        category: 'Fintech',
-        live: false,
-        url: ''
-    },
     {
         title: 'Vuyar',
         subtitle: 'AI academic companion',
@@ -19,6 +11,7 @@ const projects = [
         tools: 'React · AI UX · Education design',
         category: 'Education',
         live: true,
+        image: 'vuyar.png',
         url: 'https://vuyar-mvp.vercel.app'
     },
     {
@@ -28,25 +21,18 @@ const projects = [
         tools: 'React · Responsive design · Content management',
         category: 'Education',
         live: true,
+        image: 'excel-in-school.png',
         url: 'https://excelinschool.com'
     },
     {
         title: 'Virally',
-        subtitle: 'Creator growth platform',
-        description: 'Created a platform for content creators to plan campaigns, discover audiences, and improve online visibility with media tools.',
-        tools: 'React · UX strategy · Growth systems',
+        subtitle: 'AI content studio for creators',
+        description: 'Built an AI-powered content studio that generates platform-ready ideas, hooks, short-form video scripts, captions, and hashtags for creators across TikTok, Instagram, YouTube, Facebook, and Snapchat.',
+        tools: 'React · AI content workflows · SaaS UX',
         category: 'Social',
-        live: false,
-        url: ''
-    },
-    {
-        title: 'Omni',
-        subtitle: 'Idea simulation AI',
-        description: 'Built a digital workspace that lets users prototype ideas, run simulations, and catch product issues before launch.',
-        tools: 'React · AI interaction · prototyping',
-        category: 'Productivity',
-        live: false,
-        url: ''
+        live: true,
+        image: 'virally.png',
+        url: 'https://virally-orpin.vercel.app'
     },
     {
         title: 'Sentrix',
@@ -55,16 +41,62 @@ const projects = [
         tools: 'React · AI · Fintech design',
         category: 'Fintech',
         live: true,
+        image: 'sentrix.png',
         url: 'https://silvalino2-sentrix.vercel.app'
+    },
+    {
+        title: 'The Foundry',
+        subtitle: 'Open-source builder community',
+        description: 'Designed a community hub where people share ideas, collaborate on open projects, learn together, and discover hackathons, seminars, resources, and stories from the wider community.',
+        tools: 'React · Community UX · Events and content systems',
+        category: 'Community',
+        live: true,
+        image: 'the-foundry.png',
+        url: 'https://the-foundry-kohl.vercel.app'
+    },
+    {
+        title: 'CampusMart',
+        subtitle: 'Student-first campus marketplace',
+        description: 'Created a calm, dependable marketplace for students to buy and sell nearby essentials, from books and study materials to events, food, and technology, with trusted sellers and simple campus pickup.',
+        tools: 'React · Marketplace UX · Local commerce flows',
+        category: 'Commerce',
+        live: true,
+        image: 'campusmart.png',
+        url: 'https://campusmart-sigma.vercel.app'
     },
 ];
 
-const categories = ['All', 'Education', 'Fintech', 'Social', 'Productivity'];
+const categories = ['All', 'Education', 'Fintech', 'Social', 'Community', 'Commerce'];
+
+const ProjectPreview: React.FC<{ title: string; url: string; live: boolean; image: string }> = ({ title, url, live, image }) => {
+    const [failed, setFailed] = useState(false);
+
+    if (!live || failed) {
+        return (
+            <div className="project-preview project-preview-placeholder" role="img" aria-label={`${title} preview unavailable`}>
+                <span>{live ? 'Preview unavailable' : 'In development'}</span>
+                <strong>{title}</strong>
+            </div>
+        );
+    }
+
+    return (
+        <a className="project-preview" href={url} target="_blank" rel="noreferrer" aria-label={`Open ${title} live site`}>
+            <img
+                src={`/project-previews/${image}`}
+                alt={`${title} current live website screenshot`}
+                loading="lazy"
+                onError={() => setFailed(true)}
+            />
+        </a>
+    );
+};
 
 const Projects: React.FC = () => {
     const [filter, setFilter] = useState('All');
 
-    const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+    const liveProjects = projects.filter(project => project.live);
+    const filteredProjects = filter === 'All' ? liveProjects : liveProjects.filter(p => p.category === filter);
 
     return (
         <motion.div
@@ -78,6 +110,7 @@ const Projects: React.FC = () => {
                 {categories.map(cat => (
                     <button
                         key={cat}
+                        type="button"
                         className={filter === cat ? 'active' : ''}
                         onClick={() => setFilter(cat)}
                     >
@@ -96,6 +129,7 @@ const Projects: React.FC = () => {
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                         >
+                            <ProjectPreview title={project.title} url={project.url} live={project.live} image={project.image} />
                             <span className="project-tag">{project.category}</span>
                             <h3>{project.title}</h3>
                             <p className="project-subtitle">{project.subtitle}</p>
@@ -106,7 +140,7 @@ const Projects: React.FC = () => {
                                     Visit Live Site
                                 </a>
                             ) : (
-                                <button className="coming-soon">In Development</button>
+                                <button type="button" className="coming-soon">In Development</button>
                             )}
                         </motion.div>
                     ))}
