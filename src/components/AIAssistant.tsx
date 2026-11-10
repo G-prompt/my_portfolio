@@ -204,7 +204,7 @@ const AIAssistant: React.FC = () => {
                 {
                     name: 'Sentrix',
                     type: 'AI fraud detection',
-                    description: 'Implemented a live fraud detection demo for fintech workflows, using AI-driven monitoring to identify suspicious behavior.',
+                    description: 'An AI fraud-monitoring concept for financial workflows; the public link currently opens the sign-in screen.',
                     tech: 'React · AI · Fintech design',
                     category: 'Fintech',
                     live: true,

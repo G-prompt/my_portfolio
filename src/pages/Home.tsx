@@ -30,7 +30,7 @@ const projects = [
         number: '04',
         name: 'Sentrix',
         category: 'Fintech / AI',
-        description: 'A live fraud-detection demo exploring AI-driven monitoring for financial workflows.',
+        description: 'An AI fraud-monitoring concept for financial workflows, currently presented through its sign-in screen.',
         url: 'https://silvalino2-sentrix.vercel.app',
     },
     {

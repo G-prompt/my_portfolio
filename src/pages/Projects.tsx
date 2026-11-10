@@ -37,7 +37,7 @@ const projects = [
     {
         title: 'Sentrix',
         subtitle: 'AI fraud detection',
-        description: 'Implemented a live fraud detection demo for fintech workflows, using AI-driven monitoring to identify suspicious behavior.',
+        description: 'An AI fraud-monitoring concept for financial workflows; the public link currently opens the sign-in screen.',
         tools: 'React · AI · Fintech design',
         category: 'Fintech',
         live: true,
