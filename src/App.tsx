@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
@@ -22,9 +21,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Router>
-          <AnimatePresence>
-            {isLoading && <LoadingScreen onComplete={finishLoading} />}
-          </AnimatePresence>
+          {isLoading && <LoadingScreen onComplete={finishLoading} />}
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />

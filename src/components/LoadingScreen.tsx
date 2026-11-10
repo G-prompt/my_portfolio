@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import type React from 'react';
-import { motion } from 'framer-motion';
 import './LoadingScreen.css';
 
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
@@ -10,33 +9,26 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
     }, [onComplete]);
 
     return (
-        <motion.div
+        <div
             className="loading-screen"
             role="status"
             aria-label="Loading portfolio"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.22 }}
         >
             <div className="loading-background" aria-hidden="true">
                 <span className="loading-glow loading-glow-one" />
                 <span className="loading-glow loading-glow-two" />
             </div>
             <div className="loading-content">
-                <motion.div
-                    className="loading-mark"
-                    aria-hidden="true"
-                >
+                <div className="loading-mark" aria-hidden="true">
                     <span>G</span>
-                </motion.div>
+                </div>
                 <p className="loading-tag">Goodluck.dev</p>
                 <p className="loading-subtitle">Preparing your experience</p>
                 <div className="loading-progress" aria-hidden="true">
                     <span />
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 
